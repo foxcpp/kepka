@@ -609,6 +609,7 @@ struct Data {
 	qint32 CallConnectTimeoutMs = 30000;
 	qint32 CallPacketTimeoutMs = 10000;
 	bool PhoneCallsEnabled = true;
+	int32 CaptionLengthMax = 1024;
 	base::Observable<void> PhoneCallsEnabledChanged;
 
 	HiddenPinnedMessagesMap HiddenPinnedMessages;
@@ -731,6 +732,11 @@ DefineVar(Global, qint32, CallRingTimeoutMs);
 DefineVar(Global, qint32, CallConnectTimeoutMs);
 DefineVar(Global, qint32, CallPacketTimeoutMs);
 DefineVar(Global, bool, PhoneCallsEnabled);
+<<<<<<< HEAD
+=======
+DefineVar(Global, bool, BlockedMode);
+DefineVar(Global, int32, CaptionLengthMax);
+>>>>>>> c5d20a21f... Beta version 1.4.4: Correct caption limit.
 DefineRefVar(Global, base::Observable<void>, PhoneCallsEnabledChanged);
 
 DefineVar(Global, HiddenPinnedMessagesMap, HiddenPinnedMessages);

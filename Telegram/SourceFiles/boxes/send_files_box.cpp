@@ -253,7 +253,7 @@ void SendFilesBox::prepare() {
 		subscribe(_compressed->checkedChanged, [this](bool checked) { onCompressedChange(); });
 	}
 	if (_caption) {
-		_caption->setMaxLength(MaxPhotoCaption);
+		_caption->setMaxLength(Global::CaptionLengthMax());
 		_caption->setCtrlEnterSubmit(Ui::CtrlEnterSubmit::Both);
 		connect(_caption, SIGNAL(resized()), this, SLOT(onCaptionResized()));
 		connect(_caption, SIGNAL(submitted(bool)), this, SLOT(onSend(bool)));
@@ -596,7 +596,7 @@ EditCaptionBox::EditCaptionBox(QWidget *, HistoryMedia *media, FullMsgId msgId)
 	Assert(_animated || _photo || _doc);
 
 	_field.create(this, st::confirmCaptionArea, langFactory(lng_photo_caption), caption);
-	_field->setMaxLength(MaxPhotoCaption);
+	_field->setMaxLength(Global::CaptionLengthMax());
 	_field->setCtrlEnterSubmit(Ui::CtrlEnterSubmit::Both);
 }
 

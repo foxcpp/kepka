@@ -620,6 +620,7 @@ void Instance::Private::configLoadDone(const MTPConfig &result) {
 	}
 	Lang::CurrentCloudManager().setSuggestedLanguage(data.has_suggested_lang_code() ? qs(data.vsuggested_lang_code) :
 	                                                                                  QString());
+	Global::SetCaptionLengthMax(data.vcaption_length_max.v);
 
 	Local::writeSettings();
 

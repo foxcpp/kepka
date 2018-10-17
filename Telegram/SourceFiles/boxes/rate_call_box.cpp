@@ -33,6 +33,7 @@ Copyright (c) 2014-2017 John Preston, https://desktop.telegram.org
 namespace {
 
 constexpr auto kMaxRating = 5;
+constexpr auto kRateCallCommentLengthMax = 200;
 
 } // namespace
 
@@ -86,7 +87,7 @@ void RateCallBox::ratingChanged(int value) {
 			_comment.create(this, st::callRatingComment, langFactory(lng_call_rate_comment));
 			_comment->show();
 			_comment->setCtrlEnterSubmit(Ui::CtrlEnterSubmit::Both);
-			_comment->setMaxLength(MaxPhotoCaption);
+			_comment->setMaxLength(kRateCallCommentLengthMax);
 			_comment->resize(width() - (st::callRatingPadding.left() + st::callRatingPadding.right()),
 			                 _comment->height());
 

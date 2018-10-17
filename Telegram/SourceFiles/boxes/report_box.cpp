@@ -30,6 +30,12 @@ Copyright (c) 2014-2017 John Preston, https://desktop.telegram.org
 #include "ui/widgets/checkbox.h"
 #include "ui/widgets/input_fields.h"
 
+namespace {
+
+constexpr auto kReportReasonLengthMax = 200;
+
+} // namespace
+
 ReportBox::ReportBox(QWidget *, PeerData *peer)
     : _peer(peer)
     , _reasonGroup(std::make_shared<Ui::RadioenumGroup<Reason>>(Reason::Spam))
@@ -76,7 +82,7 @@ void ReportBox::reasonChanged(Reason reason) {
 			_reasonOtherText.create(this, st::profileReportReasonOther, langFactory(lng_report_reason_description));
 			_reasonOtherText->show();
 			_reasonOtherText->setCtrlEnterSubmit(Ui::CtrlEnterSubmit::Both);
-			_reasonOtherText->setMaxLength(MaxPhotoCaption);
+			_reasonOtherText->setMaxLength(kReportReasonLengthMax);
 			_reasonOtherText->resize(
 			    width() - (st::boxPadding.left() + st::boxOptionListPadding.left() + st::boxPadding.right()),
 			    _reasonOtherText->height());
